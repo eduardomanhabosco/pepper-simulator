@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://jyqkf7sq7di7"]
+[gd_scene load_steps=5 format=3 uid="uid://jyqkf7sq7di7"]
 
 [ext_resource type="PackedScene" uid="uid://bprhhek2si1b8" path="res://terrains/level_01.tscn" id="1_cp3vr"]
 [ext_resource type="PackedScene" uid="uid://bhh05ypgva1k7" path="res://player/player.tscn" id="2_fyo3i"]
+[ext_resource type="PackedScene" uid="uid://we75c0ikxmsh" path="res://enemies/enemy_burger.tscn" id="3_sktj0"]
+[ext_resource type="PackedScene" uid="uid://dfs2e056fdxgk" path="res://enemies/enemy_pizza.tscn" id="4_a0j3u"]
 
 [node name="GameLevel" type="Node2D"]
 
@@ -9,3 +11,9 @@
 
 [node name="Player" parent="." instance=ExtResource("2_fyo3i")]
 position = Vector2(654, 361)
+
+[node name="EnemyBurger" parent="." instance=ExtResource("3_sktj0")]
+position = Vector2(354, 151)
+
+[node name="EnemyPizza" parent="." instance=ExtResource("4_a0j3u")]
+position = Vector2(1064, 199)
