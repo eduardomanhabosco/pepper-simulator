@@ -11,9 +11,23 @@ config_version=5
 [application]
 
 config/name="Pepper Simulator"
+run/main_scene="uid://bm73feffdw01h"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[layer_names]
+
+2d_navigation/stretch/mode="disabled"
+2d_navigation/size/viewport_height=648
+2d_navigation/size/viewport_width=1152
 
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
