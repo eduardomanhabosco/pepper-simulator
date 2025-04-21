@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhh05ypgva1k7"]
+
+[ext_resource type="Script" uid="uid://mmv6w2ddk221" path="res://player/player.gd" id="1_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://c0l526pkxjdn4" path="res://assets/pepper.png" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://bpp2xhn3u0b0v" path="res://icon.svg" id="3_yw30f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(15.8832, 51.8277)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g1dw6")
+
+[node name="Texture" type="Sprite2D" parent="."]
+scale = Vector2(0.0583778, 0.0583778)
+texture = ExtResource("1_oul6g")
+region_rect = Rect2(705.955, 659.98, 2.85315, 0)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(-3.84868, 2)
+scale = Vector2(1.86974, 0.926146)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-3.84868, 2)
+scale = Vector2(1.86974, 0.926146)
+shape = SubResource("RectangleShape2D_rkbax")
+
+[node name="WeaponsManager" type="Node2D" parent="."]
+
+[node name="Weapon_1" type="Marker2D" parent="WeaponsManager"]
+position = Vector2(20, 0)
+
+[node name="WeaponTexture" type="Sprite2D" parent="WeaponsManager/Weapon_1"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_yw30f")
