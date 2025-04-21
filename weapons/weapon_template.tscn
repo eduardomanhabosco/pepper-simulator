@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://gy62kl4hafy"]
+
+[ext_resource type="Texture2D" uid="uid://5alhwjlyw5lg" path="res://assets/pepper_weapon.png" id="1_eyime"]
+
+[node name="WeaponTemplate" type="Node2D"]
+
+[node name="WeaponTexture" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_eyime")
+region_enabled = true
+
+[node name="Arm_1" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_eyime")
+region_enabled = true
+
+[node name="Arm_2" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_eyime")
+region_enabled = true
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="DetectionArea" type="Area2D" parent="."]
