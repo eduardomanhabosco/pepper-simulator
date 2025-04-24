@@ -1,17 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4knvaxcb15ur"]
+[gd_scene load_steps=5 format=3 uid="uid://c4knvaxcb15ur"]
 
-[ext_resource type="Script" uid="uid://ccga2v83pl52d" path="res://enemies/enemy.gd" id="1_qw6q8"]
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_qw6q8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37cu2"]
 size = Vector2(63, 49)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qw6q8"]
-radius = 88.71
+radius = 92.0
 
-[node name="EnemyTemplate" type="CharacterBody2D" node_paths=PackedStringArray("_dash_wait_time", "_dash_timer")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8jcaj"]
+radius = 16.0
+
+[node name="EnemyTemplate" type="CharacterBody2D" node_paths=PackedStringArray("_hitbox_area", "_dash_wait_time", "_dash_timer")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_qw6q8")
+_hitbox_area = NodePath("HitBoxArea")
 _dash_wait_time = NodePath("DashWaitTime")
 _dash_timer = NodePath("DashTimer")
 
@@ -34,6 +38,17 @@ one_shot = true
 wait_time = 0.4
 one_shot = true
 
+[node name="HitBoxArea" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="HitBoxArea"]
+shape = SubResource("CircleShape2D_8jcaj")
+
+[node name="InvincibiltyTimer" type="Timer" parent="HitBoxArea"]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="timeout" from="DashWaitTime" to="." method="_on_dash_wait_time_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="body_entered" from="HitBoxArea" to="." method="_on_hit_box_area_body_entered"]
+[connection signal="timeout" from="HitBoxArea/InvincibiltyTimer" to="." method="_on_invencibilty_timer_timeout"]

@@ -3,6 +3,7 @@ class_name Player
 
 @export_category("Variables")
 @export var _move_speed: float = 256.0
+@export var _health: int = 20
 
 func _ready() -> void:
 	global.player = self
@@ -18,3 +19,14 @@ func _move() -> void:
 	)
 	velocity = _direction * _move_speed
 	move_and_slide()
+
+func update_health(_type: String, _value: int ) -> void:
+	match _type:
+		"damage":
+			_health -= _value
+			if _health <= 0:
+				print("dano")
+				queue_free()
+		"heal":
+			pass
+	
