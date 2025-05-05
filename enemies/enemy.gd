@@ -3,7 +3,15 @@ class_name Enemy
 
 var _loading_dash: bool = false
 var _is_dashing: bool = false
+<<<<<<< Updated upstream
 var _previous_character_position: Vector2 
+=======
+<<<<<<< HEAD
+var _previous_character_position: Vector2
+=======
+var _previous_character_position: Vector2 
+>>>>>>> f2662be271868a5faf25b3245df78deacebe8348
+>>>>>>> Stashed changes
 
 @export_category("Variables")
 @export var _enemy_type: String = "chase"

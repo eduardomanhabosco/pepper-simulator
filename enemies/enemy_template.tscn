@@ -27,6 +27,7 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_37cu2")
 
 [node name="RangeArea" type="Area2D" parent="."]
+scale = Vector2(1.45771, 1.45771)
 
 [node name="Collision" type="CollisionShape2D" parent="RangeArea"]
 shape = SubResource("CircleShape2D_qw6q8")
