@@ -3,21 +3,7 @@ class_name Enemy
 
 var _loading_dash: bool = false
 var _is_dashing: bool = false
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 var _previous_character_position: Vector2 
-=======
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-var _previous_character_position: Vector2
-=======
-var _previous_character_position: Vector2 
->>>>>>> f2662be271868a5faf25b3245df78deacebe8348
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 @export_category("Variables")
 @export var _enemy_type: String = "chase"
@@ -44,7 +30,6 @@ func _physics_process(delta: float) -> void:
 	var _distance: float = global_position.distance_to(global.player.global_position)
 	
 	if _distance <= 16.0:
-		
 		return
 		
 	match _enemy_type:

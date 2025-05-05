@@ -1,11 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
+var _max_health: int 
 @export_category("Variables")
 @export var _move_speed: float = 256.0
-@export var _health: int = 20
+@export var _health: int = 200
 
 func _ready() -> void:
+	_max_health - _health
 	global.player = self
 
 func _physics_process(delta: float) -> void: 
@@ -25,8 +27,10 @@ func update_health(_type: String, _value: int ) -> void:
 		"damage":
 			_health -= _value
 			if _health <= 0:
-				print("dano")
 				queue_free()
+				
+				
 		"heal":
-			pass
-	
+			_health += _value
+			if _health > _max_health:
+				_health = _max_health	

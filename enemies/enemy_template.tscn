@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4knvaxcb15ur"]
 
-[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_qw6q8"]
+[ext_resource type="Script" uid="uid://ccga2v83pl52d" path="res://enemies/enemy.gd" id="1_qw6q8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37cu2"]
 size = Vector2(63, 49)
@@ -11,11 +11,13 @@ radius = 92.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_8jcaj"]
 radius = 16.0
 
-[node name="EnemyTemplate" type="CharacterBody2D" node_paths=PackedStringArray("_hitbox_area", "_dash_wait_time", "_dash_timer")]
+[node name="EnemyTemplate" type="CharacterBody2D" node_paths=PackedStringArray("_hitbox_area", "_invincibilty_timer", "_dash_wait_time", "_dash_timer")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_qw6q8")
+_damage = 5
 _hitbox_area = NodePath("HitBoxArea")
+_invincibilty_timer = NodePath("HitBoxArea/InvincibiltyTimer")
 _dash_wait_time = NodePath("DashWaitTime")
 _dash_timer = NodePath("DashTimer")
 

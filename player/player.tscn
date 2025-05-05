@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mmv6w2ddk221" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://c0l526pkxjdn4" path="res://assets/pepper.png" id="1_oul6g"]
-[ext_resource type="Texture2D" uid="uid://bpp2xhn3u0b0v" path="res://icon.svg" id="3_yw30f"]
+[ext_resource type="PackedScene" uid="uid://beitt7k0g8tje" path="res://weapons/sword/sword_pepper.tscn" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(15.8832, 51.8277)
@@ -34,6 +34,4 @@ shape = SubResource("RectangleShape2D_rkbax")
 [node name="Weapon_1" type="Marker2D" parent="WeaponsManager"]
 position = Vector2(20, 0)
 
-[node name="WeaponTexture" type="Sprite2D" parent="WeaponsManager/Weapon_1"]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("3_yw30f")
+[node name="SwordPepper" parent="WeaponsManager/Weapon_1" instance=ExtResource("4_yw30f")]
