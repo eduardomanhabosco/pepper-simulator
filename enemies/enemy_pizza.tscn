@@ -6,8 +6,8 @@
 [node name="EnemyPizza" instance=ExtResource("1_cy7c2")]
 _move_speed = 200.0
 _invincibilty_cooldown = 0.1
+_health = 6
 
 [node name="Texture" parent="." index="0"]
 position = Vector2(-0.999999, -1)
-scale = Vector2(-0.02, -0.02)
 texture = ExtResource("2_drufm")

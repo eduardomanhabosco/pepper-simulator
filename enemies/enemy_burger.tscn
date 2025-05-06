@@ -6,8 +6,7 @@
 [node name="EnemyBurger" instance=ExtResource("1_5xm0l")]
 _enemy_type = "chase_and_dash"
 _move_speed = 80.0
-_damage = 5
+_health = 33
 
 [node name="Texture" parent="." index="0"]
-scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_e55fg")

@@ -11,7 +11,7 @@ var _previous_character_position: Vector2
 @export var _dash_speed: float = 1000
 @export var _damage: int = 3
 @export var _invincibilty_cooldown: float = 0.5
-
+@export var _health: int = 12
 
 @export_category("Objects")
 @export var _hitbox_area: Area2D
@@ -50,6 +50,10 @@ func _chase_and_dash(_diretction: Vector2) -> void:
 		_diretction = global_position.direction_to(_previous_character_position)
 		velocity = _diretction * _dash_speed
 
+func update_health(_value: int) -> void:
+	_health -= _value
+	if _health <= 0:
+		queue_free() 
 
 func _on_range_area_body_entered(_body) -> void:
 	if _enemy_type != "chase_and_dash":

@@ -15,6 +15,9 @@ position = Vector2(654, 361)
 
 [node name="EnemyBurger" parent="." instance=ExtResource("3_sktj0")]
 position = Vector2(354, 151)
+scale = Vector2(1.2, 1.2)
 
 [node name="EnemyPizza" parent="." instance=ExtResource("4_a0j3u")]
-position = Vector2(1064, 199)
+position = Vector2(930, 121)
+scale = Vector2(0.6, 0.6)
+_move_speed = 80.0
