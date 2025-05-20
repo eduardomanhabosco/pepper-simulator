@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://jyqkf7sq7di7"]
+[gd_scene load_steps=6 format=3 uid="uid://jyqkf7sq7di7"]
 
 [ext_resource type="PackedScene" uid="uid://bprhhek2si1b8" path="res://terrains/level_01.tscn" id="1_cp3vr"]
 [ext_resource type="PackedScene" uid="uid://bhh05ypgva1k7" path="res://player/player.tscn" id="2_fyo3i"]
-[ext_resource type="PackedScene" uid="uid://we75c0ikxmsh" path="res://enemies/enemy_burger.tscn" id="3_sktj0"]
-[ext_resource type="PackedScene" uid="uid://dfs2e056fdxgk" path="res://enemies/enemy_pizza.tscn" id="4_a0j3u"]
+[ext_resource type="PackedScene" uid="uid://t5c8te17t3cc" path="res://management/wave_spot.tscn" id="3_dk70b"]
+[ext_resource type="Script" path="res://management/wave_manager.gd" id="3_e3dis"]
+[ext_resource type="PackedScene" uid="uid://cj52x76gsyotw" path="res://interface/interface.tscn" id="5_f35rk"]
 
 [node name="GameLevel" type="Node2D"]
 
@@ -13,11 +14,33 @@ position = Vector2(-17, -2)
 [node name="Player" parent="." instance=ExtResource("2_fyo3i")]
 position = Vector2(654, 361)
 
-[node name="EnemyBurger" parent="." instance=ExtResource("3_sktj0")]
-position = Vector2(354, 151)
-scale = Vector2(1.2, 1.2)
+[node name="WaveManager" type="Node2D" parent="." node_paths=PackedStringArray("_wave_timer", "_wave_spawner_timer", "_interface")]
+position = Vector2(11, -15)
+script = ExtResource("3_e3dis")
+_wave_timer = NodePath("WaveTimer")
+_wave_spawner_timer = NodePath("WaveSpawnCooldown")
+_interface = NodePath("../Interface")
 
-[node name="EnemyPizza" parent="." instance=ExtResource("4_a0j3u")]
-position = Vector2(930, 121)
-scale = Vector2(0.6, 0.6)
-_move_speed = 80.0
+[node name="WaveSpot_1" parent="WaveManager" instance=ExtResource("3_dk70b")]
+position = Vector2(270, 289)
+
+[node name="WaveSpot_2" parent="WaveManager" instance=ExtResource("3_dk70b")]
+position = Vector2(295, 506)
+
+[node name="WaveSpot_3" parent="WaveManager" instance=ExtResource("3_dk70b")]
+position = Vector2(998, 497)
+
+[node name="WaveTimer" type="Timer" parent="WaveManager"]
+one_shot = true
+
+[node name="WaveSpawnCooldown" type="Timer" parent="WaveManager"]
+one_shot = true
+
+[node name="CurrentTimeTimer" type="Timer" parent="WaveManager"]
+autostart = true
+
+[node name="Interface" parent="." instance=ExtResource("5_f35rk")]
+
+[connection signal="timeout" from="WaveManager/WaveTimer" to="WaveManager" method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="WaveManager/WaveSpawnCooldown" to="WaveManager" method="_on_wave_spawn_cooldown_timeout"]
+[connection signal="timeout" from="WaveManager/CurrentTimeTimer" to="WaveManager" method="_on_current_time_timer_timeout"]

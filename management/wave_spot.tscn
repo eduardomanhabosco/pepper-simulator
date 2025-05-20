@@ -1,3 +1,51 @@
 [gd_scene format=3 uid="uid://t5c8te17t3cc"]
 
 [node name="WaveSpot" type="Node2D"]
+
+[node name="SpawnPosition_6" type="Marker2D" parent="."]
+position = Vector2(63, -23)
+
+[node name="SpawnPosition_7" type="Marker2D" parent="."]
+position = Vector2(68, -7)
+
+[node name="SpawnPosition_8" type="Marker2D" parent="."]
+position = Vector2(69, 11)
+
+[node name="SpawnPosition_9" type="Marker2D" parent="."]
+position = Vector2(97, 3)
+
+[node name="SpawnPosition_10" type="Marker2D" parent="."]
+position = Vector2(81, -10)
+
+[node name="SpawnPosition_1" type="Marker2D" parent="."]
+position = Vector2(13, -9)
+
+[node name="SpawnPosition_2" type="Marker2D" parent="."]
+position = Vector2(18, 7)
+
+[node name="SpawnPosition_5" type="Marker2D" parent="."]
+position = Vector2(19, 25)
+
+[node name="SpawnPosition_3" type="Marker2D" parent="."]
+position = Vector2(47, 17)
+
+[node name="SpawnPosition_4" type="Marker2D" parent="."]
+position = Vector2(31, 4)
+
+[node name="SpawnPosition_11" type="Marker2D" parent="."]
+position = Vector2(63, -23)
+
+[node name="SpawnPosition_12" type="Marker2D" parent="."]
+position = Vector2(68, -7)
+
+[node name="SpawnPosition_13" type="Marker2D" parent="."]
+position = Vector2(69, 11)
+
+[node name="SpawnPosition_14" type="Marker2D" parent="."]
+position = Vector2(97, 3)
+
+[node name="SpawnPosition_15" type="Marker2D" parent="."]
+position = Vector2(81, -10)
+
+[node name="SpawnPosition_16" type="Marker2D" parent="."]
+position = Vector2(97, 3)
