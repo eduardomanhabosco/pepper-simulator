@@ -14,13 +14,13 @@ position = Vector2(-17, -2)
 [node name="Player" parent="." instance=ExtResource("2_fyo3i")]
 position = Vector2(654, 361)
 
-[node name="WaveManager" type="Node2D" parent="." node_paths=PackedStringArray("_wave_timer", "_wave_spawner_timer", "_interface", "_player")]
+[node name="WaveManager" type="Node2D" parent="." node_paths=PackedStringArray("_wave_timer", "_wave_spawner_timer", "_interface")]
 position = Vector2(11, -15)
 script = ExtResource("3_e3dis")
+_inital_position = null
 _wave_timer = NodePath("WaveTimer")
 _wave_spawner_timer = NodePath("WaveSpawnCooldown")
 _interface = NodePath("../Interface")
-_player = NodePath("../Player")
 
 [node name="WaveSpot_1" parent="WaveManager" instance=ExtResource("3_dk70b")]
 position = Vector2(270, 289)
@@ -29,15 +29,6 @@ position = Vector2(270, 289)
 position = Vector2(295, 506)
 
 [node name="WaveSpot_3" parent="WaveManager" instance=ExtResource("3_dk70b")]
-position = Vector2(998, 497)
-
-[node name="WaveSpot_4" parent="WaveManager" instance=ExtResource("3_dk70b")]
-position = Vector2(270, 289)
-
-[node name="WaveSpot_5" parent="WaveManager" instance=ExtResource("3_dk70b")]
-position = Vector2(295, 506)
-
-[node name="WaveSpot_6" parent="WaveManager" instance=ExtResource("3_dk70b")]
 position = Vector2(998, 497)
 
 [node name="WaveTimer" type="Timer" parent="WaveManager"]

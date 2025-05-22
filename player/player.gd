@@ -34,3 +34,8 @@ func update_health(_type: String, _value: int ) -> void:
 			_health += _value
 			if _health > _max_health:
 				_health = _max_health	
+
+func resethealth() -> void:
+	print("vida antiga", str(_health))
+	_health = _max_health
+	print("vida antiga", str(_health))

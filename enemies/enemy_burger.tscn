@@ -6,7 +6,11 @@
 [node name="EnemyBurger" instance=ExtResource("1_5xm0l")]
 _enemy_type = "chase_and_dash"
 _move_speed = 80.0
+_dash_speed = 1500.0
 _health = 33
 
 [node name="Texture" parent="." index="0"]
 texture = ExtResource("2_e55fg")
+
+[node name="DashWaitTime" parent="." index="3"]
+wait_time = 0.577

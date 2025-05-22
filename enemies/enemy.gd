@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Enemy
 
+const _TEXT_POPUP: PackedScene = preload("res://interface/text_popup.tscn")
+
 var _loading_dash: bool = false
 var _is_dashing: bool = false
 var _previous_character_position: Vector2 
@@ -54,6 +56,13 @@ func update_health(_value: int) -> void:
 	_health -= _value
 	if _health <= 0:
 		queue_free() 
+	_spawn_text_popup(_value)
+
+func _spawn_text_popup (_value: int) -> void:
+	var _popup: TextPopup = _TEXT_POPUP.instantiate()
+	_popup.update_text(_value)
+	_popup.global_position = global_position
+	get_tree().root.call_deferred("add_child", _popup)
 
 func _on_range_area_body_entered(_body) -> void:
 	if _enemy_type != "chase_and_dash":

@@ -6,35 +6,47 @@ const _BURGER_ENEMY: PackedScene = preload("res://enemies/enemy_burger.tscn")
 
 var _waves_dict: Dictionary = {
 	1: {
-		"wave_time": 20,
+		"wave_time": 2,
 		"wave_amount": 1,
 		"wave_spawn_cooldown": 4,
 		"spots_amount": [3, 6],
 		"wave_difficulty": "easy"
 	},
 	2: {
+		"wave_time": 25,
+		"wave_amount": 1,
+		"wave_spawn_cooldown": 4,
+		"spots_amount": [3, 6],
+		"wave_difficulty": "easy"
 	}
 }
 
 var _current_wave: int = 1
-
+@export_category("Variables")
+@export var _inital_position: Vector2 = Vector2(655,360)
 @export_category("Objects")
 @export var _wave_timer: Timer
 @export var _wave_spawner_timer: Timer
 @export var _interface: CanvasLayer = null
+@export var _player: Player = null
 
 func _ready() -> void:
 	_wave_spawner_timer.start(_waves_dict[_current_wave]["wave_spawn_cooldown"])
 	_wave_timer.start(_waves_dict[_current_wave]["wave_time"])
+	_interface.update_wave_and_time_label(_current_wave, _wave_timer.time_left)
 	_spawn_enemies()
 
 
 func _on_wave_timer_timeout() -> void:
 	_current_wave += 1
+	
 	if _current_wave > 10:
 		print("voce venceu")
 		return
-	_wave_timer.start(_waves_dict[_current_wave]["wave_time"])
+	
+	#get_tree().paused = true
+	_clear_map()
+	
 
 func _on_wave_spawn_cooldown_timeout() -> void:
 	_spawn_enemies()
@@ -105,3 +117,14 @@ func _spawn_enemy(_spawner: Node2D) -> void:
 
 func _on_current_time_timer_timeout() -> void:
 	_interface.update_wave_and_time_label(_current_wave, _wave_timer.time_left)
+
+func _clear_map() -> void:
+	for _chidren in get_parent().get_children():
+		if _chidren is Enemy:
+			_chidren.queue_free()
+	_start_new_wave()
+	
+func _start_new_wave() -> void:
+	_wave_timer.start(_waves_dict[_current_wave]["wave_time"])
+	_player.global_position = _inital_position
+	_player.resethealth()
