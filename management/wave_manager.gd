@@ -6,7 +6,7 @@ const _BURGER_ENEMY: PackedScene = preload("res://enemies/enemy_burger.tscn")
 
 var _waves_dict: Dictionary = {
 	1: {
-		"wave_time": 20,
+		"wave_time": 3,
 		"wave_amount": 1,
 		"wave_spawn_cooldown": 4,
 		"spots_amount": [3, 6],
@@ -122,7 +122,8 @@ func _clear_map() -> void:
 	for _chidren in get_parent().get_children():
 		if _chidren is Enemy:
 			_chidren.queue_free()
-	_start_new_wave()
+	
+	_interface.toggle_waves(false, true)
 	
 func _start_new_wave() -> void:
 	_wave_timer.start(_waves_dict[_current_wave]["wave_time"])
