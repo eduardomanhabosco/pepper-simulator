@@ -4,10 +4,10 @@ class_name Player
 var _max_health: int 
 @export_category("Variables")
 @export var _move_speed: float = 256.0
-@export var _health: int = 200
+@export var _health: int = 100
 
 func _ready() -> void:
-	_max_health - _health
+	_max_health = _health
 	global.player = self
 
 func _physics_process(delta: float) -> void: 
@@ -36,6 +36,4 @@ func update_health(_type: String, _value: int ) -> void:
 				_health = _max_health	
 
 func resethealth() -> void:
-	print("vida antiga", str(_health))
 	_health = _max_health
-	print("vida antiga", str(_health))

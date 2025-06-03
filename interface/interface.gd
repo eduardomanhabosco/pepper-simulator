@@ -7,7 +7,6 @@ class_name Interface
 
 func _ready() -> void:
 	global.interface = self
-	
 	for _button in get_tree().get_nodes_in_group("choose_button"):
 		_button.pressed.connect(_on_button_pressed.bind(_button))
 
@@ -25,13 +24,11 @@ func _time_in_seconds(_time: int) -> String:
 
 func toggle_waves(_wave_state: bool, _waves_container: bool) -> void:
 	get_tree().paused = _waves_container
-	$WaveAndTime.hide()
-	$BetweenWavesContainer.show()
+	$WaveAndTime.visible = _wave_state
+	$BetweenWavesContainer.visible = _waves_container
 
 
 func _on_button_pressed(_button: Button) -> void:
-		print(_button.name)
 		toggle_waves(true, false)
 		_wave_manager._start_new_wave()
-		pass
 	

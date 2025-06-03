@@ -6,7 +6,7 @@ const _BURGER_ENEMY: PackedScene = preload("res://enemies/enemy_burger.tscn")
 
 var _waves_dict: Dictionary = {
 	1: {
-		"wave_time": 3,
+		"wave_time": 20,
 		"wave_amount": 1,
 		"wave_spawn_cooldown": 4,
 		"spots_amount": [3, 6],
@@ -14,7 +14,7 @@ var _waves_dict: Dictionary = {
 	},
 	2: {
 		"wave_time": 25,
-		"wave_amount": 1,
+		"wave_amount": 2,
 		"wave_spawn_cooldown": 4,
 		"spots_amount": [3, 6],
 		"wave_difficulty": "medium_to_hard"

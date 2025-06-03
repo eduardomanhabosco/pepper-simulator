@@ -21,11 +21,10 @@ var _previous_character_position: Vector2
 @export var _dash_wait_time: Timer
 @export var _dash_timer: Timer
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _loading_dash:
 		return
 	if global.player == null:
-		print("personagerm nao encontrado")
 		return
 		
 	var _diretction: Vector2 = global_position.direction_to(global.player.global_position)
