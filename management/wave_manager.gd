@@ -17,6 +17,13 @@ var _waves_dict: Dictionary = {
 		"wave_amount": 2,
 		"wave_spawn_cooldown": 4,
 		"spots_amount": [3, 6],
+		"wave_difficulty": "hard"
+	},
+	3: {
+		"wave_time": 25,
+		"wave_amount": 3,
+		"wave_spawn_cooldown": 4,
+		"spots_amount": [3, 6],
 		"wave_difficulty": "medium_to_hard"
 	}
 }
