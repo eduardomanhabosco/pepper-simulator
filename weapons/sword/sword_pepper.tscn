@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://beitt7k0g8tje"]
+[gd_scene load_steps=9 format=3 uid="uid://beitt7k0g8tje"]
 
 [ext_resource type="PackedScene" uid="uid://gy62kl4hafy" path="res://weapons/weapon_template.tscn" id="1_lxdw8"]
 [ext_resource type="Texture2D" uid="uid://dwle112i3srkf" path="res://assets/sowrd_pepper.png" id="2_gjtl0"]
+[ext_resource type="AudioStream" uid="uid://mg66n1hpxnkq" path="res://assets/swordsfx.mp3" id="3_xy6pf"]
 
 [sub_resource type="Animation" id="Animation_yd4hi"]
 length = 0.001
@@ -40,10 +41,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 6.28319]
+"values": [0.872665, 3.31613]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -52,11 +53,30 @@ tracks/1/path = NodePath("AttackArea/Collision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sword_sfx")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0711484,
+"start_offset": 0.11,
+"stream": ExtResource("3_xy6pf")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_atxal"]
 _data = {
@@ -65,17 +85,17 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dei"]
-size = Vector2(38, 28)
+size = Vector2(47.7845, 44.5471)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_atxal"]
-radius = 25.02
+radius = 31.5753
 
 [node name="SwordPepper" instance=ExtResource("1_lxdw8")]
 _attack_damage = 22
 _attack_cooldown = 0.6
 
 [node name="WeaponTexture" parent="." index="0"]
-position = Vector2(-3, 0)
+position = Vector2(-10.9471, -10.2549)
 texture = ExtResource("2_gjtl0")
 flip_h = true
 region_enabled = false
@@ -85,10 +105,20 @@ libraries = {
 "": SubResource("AnimationLibrary_atxal")
 }
 
+[node name="AttackArea" parent="." index="4"]
+position = Vector2(-33.5405, -0.178454)
+
 [node name="Collision" type="CollisionShape2D" parent="AttackArea" index="0"]
-position = Vector2(-4, 4)
+position = Vector2(21.1163, -8.8858)
 shape = SubResource("RectangleShape2D_d4dei")
 disabled = true
 
+[node name="DetectionArea" parent="." index="5"]
+position = Vector2(-30.4125, 0.285408)
+
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea" index="0"]
+position = Vector2(18.4806, -10.3666)
 shape = SubResource("CircleShape2D_atxal")
+
+[node name="sword_sfx" type="AudioStreamPlayer" parent="." index="7"]
+volume_db = -15.0
