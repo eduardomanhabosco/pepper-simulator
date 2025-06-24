@@ -29,6 +29,17 @@ func toggle_waves(_wave_state: bool, _waves_container: bool) -> void:
 
 
 func _on_button_pressed(_button: Button) -> void:
-		toggle_waves(true, false)
-		_wave_manager._start_new_wave()
-	
+	var slot_name := _button.get_parent().name
+
+	match slot_name:
+		"Slot1":
+			print("Mais vida")
+		"Slot2":
+			print("Mais velocidade")
+		"Slot3":
+			print("Mais dano")
+		_:
+			print("Slot desconhecido: " + slot_name)
+
+	toggle_waves(true, false)
+	_wave_manager._start_new_wave()
