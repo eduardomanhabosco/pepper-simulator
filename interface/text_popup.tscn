@@ -1,36 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://dheq8j1h53mdx"]
 
+[ext_resource type="FontFile" uid="uid://cjyjk8xgsx0g1" path="res://assets/Kaph_Font_1_20/TrueType (.ttf)/Kaph-Regular.ttf" id="1_bonr4"]
 [ext_resource type="Script" path="res://interface/text_popup.gd" id="1_byuy8"]
 
-[sub_resource type="FontFile" id="FontFile_sep80"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/17/0/ascent = 0.0
-cache/0/17/0/descent = 0.0
-cache/0/17/0/underline_position = 0.0
-cache/0/17/0/underline_thickness = 0.0
-cache/0/17/0/scale = 1.0
-cache/0/40/0/ascent = 0.0
-cache/0/40/0/descent = 0.0
-cache/0/40/0/underline_position = 0.0
-cache/0/40/0/underline_thickness = 0.0
-cache/0/40/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-
 [sub_resource type="LabelSettings" id="LabelSettings_5kwiv"]
-font = SubResource("FontFile_sep80")
-font_size = 50
+font = ExtResource("1_bonr4")
+font_size = 15
 font_color = Color(1, 0, 0, 1)
+outline_size = 2
 
 [sub_resource type="Animation" id="Animation_jb0mb"]
 length = 0.001

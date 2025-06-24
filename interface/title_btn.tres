@@ -1,0 +1,67 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dv7062kd71gk1"]
+
+[ext_resource type="FontFile" uid="uid://cjyjk8xgsx0g1" path="res://assets/Kaph_Font_1_20/TrueType (.ttf)/Kaph-Regular.ttf" id="1_hmmlm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vnvy"]
+bg_color = Color(0.84778, 0.508793, 0.000469949, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.844827, 0.0200092, 0.107567, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 10.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10i3t"]
+bg_color = Color(0.84778, 0.508793, 0.000469949, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.844827, 0.0200092, 0.107567, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 10.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5brih"]
+bg_color = Color(0.844827, 0.0200092, 0.107567, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.612299, 1.50409e-06, 5.77569e-07, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 10.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pky75"]
+bg_color = Color(0.84778, 0.508793, 0.000469949, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.612299, 1.50409e-06, 5.77569e-07, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 10.0
+expand_margin_bottom = 4.0
+
+[resource]
+default_font = ExtResource("1_hmmlm")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_5vnvy")
+Button/styles/hover = SubResource("StyleBoxFlat_10i3t")
+Button/styles/normal = SubResource("StyleBoxFlat_5brih")
+Button/styles/pressed = SubResource("StyleBoxFlat_pky75")

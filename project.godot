@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pepper Simulator"
-run/main_scene="uid://bm73feffdw01h"
+run/main_scene="res://interface/interface.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
