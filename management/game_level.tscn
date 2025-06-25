@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jyqkf7sq7di7"]
+[gd_scene load_steps=8 format=3 uid="uid://jyqkf7sq7di7"]
 
 [ext_resource type="PackedScene" uid="uid://bprhhek2si1b8" path="res://terrains/level_01.tscn" id="1_cp3vr"]
 [ext_resource type="PackedScene" uid="uid://bhh05ypgva1k7" path="res://player/player.tscn" id="2_fyo3i"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://t5c8te17t3cc" path="res://management/wave_spot.tscn" id="3_dk70b"]
 [ext_resource type="Script" uid="uid://c18qjs7rlndsx" path="res://management/wave_manager.gd" id="3_e3dis"]
 [ext_resource type="PackedScene" uid="uid://cj52x76gsyotw" path="res://interface/interface.tscn" id="5_f35rk"]
+[ext_resource type="AudioStream" uid="uid://cphcg2ynhko6d" path="res://assets/Magicka OST - Dunka Dunka.mp3" id="7_x0e2h"]
 
 [node name="GameLevel" type="Node2D"]
 
@@ -56,6 +57,11 @@ autostart = true
 
 [node name="Interface" parent="." node_paths=PackedStringArray("_wave_manager") instance=ExtResource("5_f35rk")]
 _wave_manager = NodePath("../WaveManager")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_x0e2h")
+volume_db = -16.474
+autoplay = true
 
 [connection signal="timeout" from="WaveManager/WaveTimer" to="WaveManager" method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaveManager/WaveSpawnCooldown" to="WaveManager" method="_on_wave_spawn_cooldown_timeout"]

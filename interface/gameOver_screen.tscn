@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://qhnl37qtnt77"]
+[gd_scene load_steps=5 format=3 uid="uid://qhnl37qtnt77"]
 
-[ext_resource type="Script" path="res://interface/title_screen.gd" id="1_4ep50"]
+[ext_resource type="Script" uid="uid://b415x44f6tapw" path="res://interface/title_screen.gd" id="1_4ep50"]
 [ext_resource type="Texture2D" uid="uid://dnx85y2y5yr5d" path="res://assets/title_screen.jpg" id="2_4ep50"]
 [ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="3_urm4f"]
+[ext_resource type="AudioStream" uid="uid://cphcg2ynhko6d" path="res://assets/Magicka OST - Dunka Dunka.mp3" id="4_0wlvm"]
 
 [node name="CreditsScreen" type="Control"]
 layout_mode = 3
@@ -53,5 +54,9 @@ text = "REINICIAR"
 
 [node name="pepper" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0wlvm")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/go_back_btn" to="." method="_on_go_back_btn_pressed"]
