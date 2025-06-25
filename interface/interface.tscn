@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cj52x76gsyotw"]
 
-[ext_resource type="Script" path="res://interface/interface.gd" id="1_vtx4e"]
+[ext_resource type="Script" uid="uid://bf374yy3c7pxu" path="res://interface/interface.gd" id="1_vtx4e"]
 [ext_resource type="LabelSettings" uid="uid://b1msk7u4mca4k" path="res://interface/interface.tres" id="2_kcomb"]
 [ext_resource type="Texture2D" uid="uid://bco6mrdoia38w" path="res://assets/lifecard.jpeg" id="3_fnedw"]
 [ext_resource type="AudioStream" uid="uid://gexny1yudydg" path="res://assets/upgrade.mp3" id="3_j5cp8"]
