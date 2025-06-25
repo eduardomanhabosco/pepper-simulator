@@ -11,6 +11,8 @@ var _max_health: int
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export_category("Objects")
 @export var _weapon: BaseWeapon
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var sword_pepper: BaseWeapon = $WeaponsManager/Weapon_1/SwordPepper
 
 # Você não precisa mais exportar a interface aqui,
 # usaremos o global.interface
@@ -34,8 +36,11 @@ func _move() -> void:
 		anim.stop()
 	if _direction[0] >= 0.01 or _direction[1] != 0:
 		anim.play('walk_dir')
+		sword_pepper.switch_side('dir')
 	if _direction[0] < 0:
 		anim.play('walk_esq')
+		sword_pepper.switch_side('esq')
+
 		
 	
 	move_and_slide()

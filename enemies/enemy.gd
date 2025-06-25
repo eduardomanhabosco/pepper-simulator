@@ -20,6 +20,8 @@ var _previous_character_position: Vector2
 @export var _invincibilty_timer: Timer  
 @export var _dash_wait_time: Timer
 @export var _dash_timer: Timer
+@onready var texture_2: AnimatedSprite2D = $Texture2
+@onready var hit_sfx: AudioStreamPlayer = $hit_sfx
 
 func _physics_process(_delta: float) -> void:
 	if _loading_dash:
@@ -43,6 +45,12 @@ func _physics_process(_delta: float) -> void:
 	
 func _chase(_diretction: Vector2) -> void: 
 	velocity = _diretction * _move_speed
+	if _diretction[0] > 0:
+		texture_2.play('walking_right')
+	else:
+		texture_2.play('walking_left')
+
+
 	
 func _chase_and_dash(_diretction: Vector2) -> void: 
 	if not _is_dashing:
@@ -54,6 +62,7 @@ func _chase_and_dash(_diretction: Vector2) -> void:
 func update_health(_value: int) -> void:
 	_health -= _value
 	if _health <= 0:
+		hit_sfx.play()
 		queue_free() 
 	_spawn_text_popup(_value)
 

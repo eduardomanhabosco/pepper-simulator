@@ -32,3 +32,9 @@ func _on_attack_timer_timeout() -> void:
 func _on_attack_area_body_entered(_body) -> void:
 	if _body is Enemy:
 		_body.update_health(_attack_damage)
+
+func switch_side(direction):
+	if direction == "esq":
+		position.x = -abs(position.x)  # garante que a espada vá para a esquerda
+	elif direction == "dir":
+		position.x = abs(position.x)   # garante que a espada vá para a direita

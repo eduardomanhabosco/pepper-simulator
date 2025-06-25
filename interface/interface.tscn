@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj52x76gsyotw"]
+[gd_scene load_steps=5 format=3 uid="uid://cj52x76gsyotw"]
 
-[ext_resource type="Script" uid="uid://bf374yy3c7pxu" path="res://interface/interface.gd" id="1_vtx4e"]
+[ext_resource type="Script" path="res://interface/interface.gd" id="1_vtx4e"]
 [ext_resource type="FontFile" uid="uid://cjyjk8xgsx0g1" path="res://assets/Kaph_Font_1_20/TrueType (.ttf)/Kaph-Regular.ttf" id="2_y5ix0"]
+[ext_resource type="AudioStream" uid="uid://gexny1yudydg" path="res://assets/upgrade.mp3" id="3_j5cp8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o4h5c"]
 font = ExtResource("2_y5ix0")
@@ -159,3 +160,7 @@ offset_top = 43.0
 offset_right = 83.0
 offset_bottom = 66.0
 text = "Dano: XXX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j5cp8")
+volume_db = -16.0

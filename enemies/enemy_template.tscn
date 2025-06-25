@@ -1,53 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4knvaxcb15ur"]
+[gd_scene load_steps=6 format=3 uid="uid://c4knvaxcb15ur"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_qw6q8"]
-
-[sub_resource type="Animation" id="Animation_hlciq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_yvea4"]
-resource_name = "scale"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.055, 0.055), Vector2(0.05, 0.05)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpaiu"]
-_data = {
-"RESET": SubResource("Animation_hlciq"),
-"scale": SubResource("Animation_yvea4")
-}
+[ext_resource type="AudioStream" uid="uid://dcs8vfugwmevk" path="res://assets/hitsfx.mp3" id="2_msmxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37cu2"]
 size = Vector2(63, 49)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qw6q8"]
-radius = 92.0
+radius = 18.8371
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8jcaj"]
-radius = 16.0
+radius = 27.074
 
 [node name="EnemyTemplate" type="CharacterBody2D" node_paths=PackedStringArray("_hitbox_area", "_invincibilty_timer", "_dash_wait_time", "_dash_timer")]
 collision_layer = 2
@@ -58,14 +21,6 @@ _hitbox_area = NodePath("HitBoxArea")
 _invincibilty_timer = NodePath("HitBoxArea/InvincibiltyTimer")
 _dash_wait_time = NodePath("DashWaitTime")
 _dash_timer = NodePath("DashTimer")
-
-[node name="Texture" type="Sprite2D" parent="."]
-
-[node name="Animation" type="AnimationPlayer" parent="Texture"]
-libraries = {
-"": SubResource("AnimationLibrary_lpaiu")
-}
-autoplay = "scale"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
@@ -93,6 +48,9 @@ shape = SubResource("CircleShape2D_8jcaj")
 [node name="InvincibiltyTimer" type="Timer" parent="HitBoxArea"]
 wait_time = 0.5
 one_shot = true
+
+[node name="hit_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_msmxs")
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="timeout" from="DashWaitTime" to="." method="_on_dash_wait_time_timeout"]

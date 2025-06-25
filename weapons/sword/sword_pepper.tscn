@@ -116,7 +116,7 @@ disabled = true
 position = Vector2(-30.4125, 0.285408)
 
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea" index="0"]
-position = Vector2(18.4806, -10.3666)
+position = Vector2(18.4125, -9.28541)
 shape = SubResource("CircleShape2D_atxal")
 
 [node name="sword_sfx" type="AudioStreamPlayer" parent="." index="7"]

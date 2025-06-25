@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhh05ypgva1k7"]
+[gd_scene load_steps=13 format=3 uid="uid://bhh05ypgva1k7"]
 
-[ext_resource type="Script" uid="uid://mmv6w2ddk221" path="res://player/player.gd" id="1_g1dw6"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://f8dqheod2d2o" path="res://assets/main_character/pepper_sprite_1.png" id="2_m0las"]
+[ext_resource type="AudioStream" uid="uid://cmgj6r43s88rk" path="res://assets/punch_sfx.mp3" id="4_14t77"]
 [ext_resource type="PackedScene" uid="uid://beitt7k0g8tje" path="res://weapons/sword/sword_pepper.tscn" id="4_yw30f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4ff4"]
@@ -70,8 +71,7 @@ _weapon = NodePath("WeaponsManager/Weapon_1/SwordPepper")
 position = Vector2(1, -1)
 scale = Vector2(0.362069, 0.313131)
 sprite_frames = SubResource("SpriteFrames_i2k5y")
-animation = &"walk_esq"
-frame_progress = 0.237847
+animation = &"walk_dir"
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(-3.84868, 2)
@@ -93,3 +93,7 @@ shape = SubResource("RectangleShape2D_rkbax")
 position = Vector2(20, 0)
 
 [node name="SwordPepper" parent="WeaponsManager/Weapon_1" instance=ExtResource("4_yw30f")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_14t77")
+volume_db = -8.0

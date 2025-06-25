@@ -1,13 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfs2e056fdxgk"]
+[gd_scene load_steps=8 format=3 uid="uid://dfs2e056fdxgk"]
 
 [ext_resource type="PackedScene" uid="uid://c4knvaxcb15ur" path="res://enemies/enemy_template.tscn" id="1_cy7c2"]
-[ext_resource type="Texture2D" uid="uid://d2h44aaifmbn2" path="res://assets/pizza.png" id="2_drufm"]
+[ext_resource type="Texture2D" uid="uid://dvk2uns7grnvu" path="res://assets/pizza_sprites.png" id="2_fp6ap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruur7"]
+atlas = ExtResource("2_fp6ap")
+region = Rect2(0, 0, 184, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v36x"]
+atlas = ExtResource("2_fp6ap")
+region = Rect2(184, 0, 184, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cr1l"]
+atlas = ExtResource("2_fp6ap")
+region = Rect2(0, 241, 184, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3q7a"]
+atlas = ExtResource("2_fp6ap")
+region = Rect2(184, 241, 184, 241)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f8pd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruur7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v36x")
+}],
+"loop": true,
+"name": &"walking_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cr1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3q7a")
+}],
+"loop": true,
+"name": &"walking_right",
+"speed": 5.0
+}]
 
 [node name="EnemyPizza" instance=ExtResource("1_cy7c2")]
 _move_speed = 200.0
 _invincibilty_cooldown = 0.1
 _health = 6
 
-[node name="Texture" parent="." index="0"]
-position = Vector2(-0.999999, -1)
-texture = ExtResource("2_drufm")
+[node name="Texture2" type="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-4.76837e-07, 0)
+scale = Vector2(0.237962, 0.215031)
+sprite_frames = SubResource("SpriteFrames_f8pd4")
+animation = &"walking_right"
