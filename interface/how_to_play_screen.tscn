@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://jk3xiggr7kic"]
 
 [ext_resource type="Script" path="res://interface/title_screen.gd" id="1_krit5"]
-[ext_resource type="Texture2D" uid="uid://d2xjqoksko445" path="res://assets/how_to_play_screen.png" id="2_gjshu"]
+[ext_resource type="Texture2D" uid="uid://brlvjjof4mus2" path="res://assets/htp_screen.png" id="2_tbkjh"]
 [ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="3_ndw73"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh21w"]
@@ -19,7 +19,7 @@ script = ExtResource("1_krit5")
 layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_gjshu")
+texture = ExtResource("2_tbkjh")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
