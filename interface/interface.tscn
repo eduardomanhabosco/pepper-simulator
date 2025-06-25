@@ -137,3 +137,7 @@ layout_mode = 2
 text = "DA MAIS VIDA"
 label_settings = SubResource("LabelSettings_o4h5c")
 horizontal_alignment = 1
+
+[node name="HeartContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

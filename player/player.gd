@@ -10,6 +10,7 @@ var _max_health: int
 
 @export_category("Objects")
 @export var _weapon: BaseWeapon
+@export var _interface: Interface
 
 func _ready() -> void:
 	_max_health = _health
@@ -46,7 +47,8 @@ func update_health(_type: String, _value: int ) -> void:
 			_health += _value
 			if _health > _max_health:
 				_health = _max_health
-
+	_interface.update_health_ui(_health);
+	
 func increase_max_health(amount: int) -> void:
 	_max_health += amount	
 	_health += amount

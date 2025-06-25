@@ -13,6 +13,7 @@
 
 [node name="Level_01" parent="." instance=ExtResource("1_cp3vr")]
 position = Vector2(-17, -2)
+collision_enabled = false
 
 [node name="Player" parent="." instance=ExtResource("2_fyo3i")]
 z_index = 4096
@@ -55,6 +56,7 @@ autostart = true
 
 [node name="Interface" parent="." node_paths=PackedStringArray("_wave_manager") instance=ExtResource("5_f35rk")]
 _wave_manager = NodePath("../WaveManager")
+heart_texture = null
 
 [connection signal="timeout" from="WaveManager/WaveTimer" to="WaveManager" method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaveManager/WaveSpawnCooldown" to="WaveManager" method="_on_wave_spawn_cooldown_timeout"]
