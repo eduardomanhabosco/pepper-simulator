@@ -168,16 +168,15 @@ func apply_card_effect(effect: String) -> void:
 	match effect:
 		"vida":
 			_player.increase_max_health(50)
+			global.interface.update_health_label(_player._health)
 		"velocidade":
 			_player._move_speed += 50
+			global.interface.update_speed_label(_player._move_speed)
 		"dano":
 			if _player._weapon:
 				_player._weapon._attack_damage += 10
-				print("Novo dano:", _player._weapon._attack_damage)
-			else:
-				print("Arma não encontrada!")
-		_:
-			print("Efeito desconhecido: " + effect)
+				global.interface.update_damage_label(_player._weapon._attack_damage)
+
 
 
 func _spawn_map(map_scene: PackedScene) -> void:
