@@ -26,7 +26,7 @@ func _ready() -> void:
 			update_damage_label(global.player._weapon._attack_damage)
 
 func update_wave_and_time_label(_wave: int, _time_remaining: int) -> void:
-	_wave_and_time.text = "Onda %d\nTempo restante: %s" % [
+	_wave_and_time.text = "Wave %d\nTime remaining: %s" % [
 		_wave,
 		_time_in_seconds(_time_remaining)
 	]

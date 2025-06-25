@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://we75c0ikxmsh"]
 
 [ext_resource type="PackedScene" uid="uid://c4knvaxcb15ur" path="res://enemies/enemy_template.tscn" id="1_5xm0l"]
-[ext_resource type="Texture2D" uid="uid://ccyde2m8dqysq" path="res://assets/burger.png" id="2_e55fg"]
+[ext_resource type="Texture2D" uid="uid://dxu7mvi0n20au" path="res://assets/hamburguer_sprite.png" id="2_acl2s"]
 
 [node name="EnemyBurger" instance=ExtResource("1_5xm0l")]
 _enemy_type = "chase_and_dash"
@@ -9,8 +9,10 @@ _move_speed = 80.0
 _dash_speed = 1500.0
 _health = 33
 
-[node name="Texture" parent="." index="0"]
-texture = ExtResource("2_e55fg")
-
-[node name="DashWaitTime" parent="." index="3"]
+[node name="DashWaitTime" parent="." index="2"]
 wait_time = 0.577
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="6"]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.123792, 0.118489)
+texture = ExtResource("2_acl2s")

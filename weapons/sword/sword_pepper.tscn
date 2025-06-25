@@ -84,11 +84,11 @@ _data = {
 "attack": SubResource("Animation_d4dei")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dei"]
-size = Vector2(47.7845, 44.5471)
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4mkr"]
+radius = 76.1442
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_atxal"]
-radius = 31.5753
+radius = 77.1557
 
 [node name="SwordPepper" instance=ExtResource("1_lxdw8")]
 _attack_cooldown = 0.6
@@ -108,15 +108,15 @@ libraries = {
 position = Vector2(-33.5405, -0.178454)
 
 [node name="Collision" type="CollisionShape2D" parent="AttackArea" index="0"]
-position = Vector2(21.1163, -8.8858)
-shape = SubResource("RectangleShape2D_d4dei")
+position = Vector2(23.9937, -6.30654)
+shape = SubResource("CircleShape2D_n4mkr")
 disabled = true
 
 [node name="DetectionArea" parent="." index="5"]
 position = Vector2(-30.4125, 0.285408)
 
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea" index="0"]
-position = Vector2(18.4125, -9.28541)
+position = Vector2(21.3432, -6.59002)
 shape = SubResource("CircleShape2D_atxal")
 
 [node name="sword_sfx" type="AudioStreamPlayer" parent="." index="7"]
