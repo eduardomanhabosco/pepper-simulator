@@ -71,7 +71,7 @@ _weapon = NodePath("WeaponsManager/Weapon_1/SwordPepper")
 position = Vector2(1, -1)
 scale = Vector2(0.362069, 0.313131)
 sprite_frames = SubResource("SpriteFrames_i2k5y")
-animation = &"walk_dir"
+animation = &"walk_esq"
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(-3.84868, 2)

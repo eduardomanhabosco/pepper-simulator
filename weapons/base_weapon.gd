@@ -35,6 +35,8 @@ func _on_attack_area_body_entered(_body) -> void:
 
 func switch_side(direction):
 	if direction == "esq":
-		position.x = -abs(position.x)
+		position.x = -40
+		rotation = 270
 	elif direction == "dir":
-		position.x = abs(position.x)
+		position.x = 0
+		rotation = 20
