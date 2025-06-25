@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj52x76gsyotw"]
+[gd_scene load_steps=7 format=3 uid="uid://cj52x76gsyotw"]
 
 [ext_resource type="Script" path="res://interface/interface.gd" id="1_vtx4e"]
 [ext_resource type="LabelSettings" uid="uid://b1msk7u4mca4k" path="res://interface/interface.tres" id="2_kcomb"]
+[ext_resource type="Texture2D" uid="uid://bco6mrdoia38w" path="res://assets/lifecard.jpeg" id="3_fnedw"]
 [ext_resource type="AudioStream" uid="uid://gexny1yudydg" path="res://assets/upgrade.mp3" id="3_j5cp8"]
+[ext_resource type="Texture2D" uid="uid://jrno6ql3q0ud" path="res://assets/speedcard.jpeg" id="4_8qvjo"]
+[ext_resource type="Texture2D" uid="uid://dkje54m8q5yl" path="res://assets/strengthcard.jpeg" id="5_s804w"]
 
 [node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("_wave_and_time", "_health_label", "_speed_label", "_damage_label")]
 process_mode = 3
@@ -62,26 +65,11 @@ color = Color(0.458828, 0.314138, 0.604449, 1)
 
 [node name="Button" type="Button" parent="BetweenWavesContainer/Background/HCointainer/Slot1" groups=["choose_button"]]
 layout_mode = 2
-offset_right = 319.0
+offset_right = 311.0
 offset_bottom = 475.0
-
-[node name="VContainer" type="VBoxContainer" parent="BetweenWavesContainer/Background/HCointainer/Slot1"]
-layout_mode = 0
-offset_right = 319.0
-offset_bottom = 50.0
-alignment = 1
-
-[node name="Title" type="Label" parent="BetweenWavesContainer/Background/HCointainer/Slot1/VContainer"]
-layout_mode = 2
-text = "TITULO"
-label_settings = ExtResource("2_kcomb")
-horizontal_alignment = 1
-
-[node name="Decription" type="Label" parent="BetweenWavesContainer/Background/HCointainer/Slot1/VContainer"]
-layout_mode = 2
-text = "DA MAIS VIDA"
-label_settings = ExtResource("2_kcomb")
-horizontal_alignment = 1
+icon = ExtResource("3_fnedw")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Slot2" type="ColorRect" parent="BetweenWavesContainer/Background/HCointainer"]
 custom_minimum_size = Vector2(320, 480)
@@ -92,24 +80,9 @@ color = Color(0.458828, 0.314138, 0.604449, 1)
 layout_mode = 2
 offset_right = 319.0
 offset_bottom = 475.0
-
-[node name="VContainer" type="VBoxContainer" parent="BetweenWavesContainer/Background/HCointainer/Slot2"]
-layout_mode = 0
-offset_right = 319.0
-offset_bottom = 50.0
-alignment = 1
-
-[node name="Title" type="Label" parent="BetweenWavesContainer/Background/HCointainer/Slot2/VContainer"]
-layout_mode = 2
-text = "TITULO"
-label_settings = ExtResource("2_kcomb")
-horizontal_alignment = 1
-
-[node name="Decription" type="Label" parent="BetweenWavesContainer/Background/HCointainer/Slot2/VContainer"]
-layout_mode = 2
-text = "DA MAIS VIDA"
-label_settings = ExtResource("2_kcomb")
-horizontal_alignment = 1
+icon = ExtResource("4_8qvjo")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Slot3" type="ColorRect" parent="BetweenWavesContainer/Background/HCointainer"]
 custom_minimum_size = Vector2(320, 480)
@@ -120,24 +93,9 @@ color = Color(0.458828, 0.314138, 0.604449, 1)
 layout_mode = 2
 offset_right = 319.0
 offset_bottom = 475.0
-
-[node name="VContainer" type="VBoxContainer" parent="BetweenWavesContainer/Background/HCointainer/Slot3"]
-layout_mode = 0
-offset_right = 319.0
-offset_bottom = 50.0
-alignment = 1
-
-[node name="Title" type="Label" parent="BetweenWavesContainer/Background/HCointainer/Slot3/VContainer"]
-layout_mode = 2
-text = "TITULO"
-label_settings = ExtResource("2_kcomb")
-horizontal_alignment = 1
-
-[node name="Decription" type="Label" parent="BetweenWavesContainer/Background/HCointainer/Slot3/VContainer"]
-layout_mode = 2
-text = "DA MAIS VIDA"
-label_settings = ExtResource("2_kcomb")
-horizontal_alignment = 1
+icon = ExtResource("5_s804w")
+icon_alignment = 1
+expand_icon = true
 
 [node name="HealthLabel" type="Label" parent="."]
 offset_left = 8.0
