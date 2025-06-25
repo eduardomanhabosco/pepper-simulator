@@ -1,7 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://we75c0ikxmsh"]
+[gd_scene load_steps=6 format=3 uid="uid://we75c0ikxmsh"]
 
 [ext_resource type="PackedScene" uid="uid://c4knvaxcb15ur" path="res://enemies/enemy_template.tscn" id="1_5xm0l"]
 [ext_resource type="Texture2D" uid="uid://dxu7mvi0n20au" path="res://assets/hamburguer_sprite.png" id="2_acl2s"]
+
+[sub_resource type="Animation" id="Animation_d3kj0"]
+resource_name = "new_animation"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.123792, 0.118489), Vector2(0.134, 0.127)]
+}
+
+[sub_resource type="Animation" id="Animation_byc7c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.123792, 0.118489)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nvmm"]
+_data = {
+"RESET": SubResource("Animation_byc7c"),
+"new_animation": SubResource("Animation_d3kj0")
+}
 
 [node name="EnemyBurger" instance=ExtResource("1_5xm0l")]
 _enemy_type = "chase_and_dash"
@@ -16,3 +54,9 @@ wait_time = 0.577
 position = Vector2(0, 1.19209e-07)
 scale = Vector2(0.123792, 0.118489)
 texture = ExtResource("2_acl2s")
+
+[node name="Animation" type="AnimationPlayer" parent="Sprite2D" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_4nvmm")
+}
+autoplay = "new_animation"

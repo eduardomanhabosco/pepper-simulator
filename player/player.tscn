@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhh05ypgva1k7"]
+[gd_scene load_steps=14 format=3 uid="uid://bhh05ypgva1k7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://f8dqheod2d2o" path="res://assets/main_character/pepper_sprite_1.png" id="2_m0las"]
 [ext_resource type="AudioStream" uid="uid://cmgj6r43s88rk" path="res://assets/punch_sfx.mp3" id="4_14t77"]
 [ext_resource type="PackedScene" uid="uid://beitt7k0g8tje" path="res://weapons/sword/sword_pepper.tscn" id="4_yw30f"]
+[ext_resource type="PackedScene" uid="uid://ccjtuuqsnfky1" path="res://effects/particles/dust.tscn" id="5_avw4w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4ff4"]
 atlas = ExtResource("2_m0las")
@@ -63,9 +64,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(15.8832, 51.8277)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_weapon")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_weapon", "_dust")]
 script = ExtResource("1_g1dw6")
 _weapon = NodePath("WeaponsManager/Weapon_1/SwordPepper")
+_dust = NodePath("Dust")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -1)
@@ -97,3 +99,7 @@ position = Vector2(20, 0)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_14t77")
 volume_db = -8.0
+
+[node name="Dust" parent="." instance=ExtResource("5_avw4w")]
+show_behind_parent = true
+position = Vector2(6, 27)

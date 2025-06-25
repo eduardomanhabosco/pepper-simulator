@@ -11,6 +11,7 @@ var _max_health: int
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export_category("Objects")
 @export var _weapon: BaseWeapon
+@export var _dust: CPUParticles2D = null
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var sword_pepper: BaseWeapon = $WeaponsManager/Weapon_1/SwordPepper
 
@@ -40,10 +41,16 @@ func _move() -> void:
 	if _direction[0] < 0:
 		anim.play('walk_esq')
 		sword_pepper.switch_side('esq')
-
-		
 	
 	move_and_slide()
+
+	if _direction:
+		_dust.emitting = true
+		return
+	
+	_dust.emitting = false
+		
+	
 
 
 func update_health(_type: String, _value: int ) -> void:
