@@ -44,7 +44,42 @@ var _waves_dict: Dictionary = {
 		"wave_amount": 4,
 		"wave_spawn_cooldown": 3,
 		"spots_amount": [2, 5],
+		"wave_difficulty": "medium_to_hard"
+	},
+	5: {
+		"wave_time": 33,
+		"wave_amount": 5,
+		"wave_spawn_cooldown": 3,
+		"spots_amount": [2, 5],
+		"wave_difficulty": "medium_to_hard"
+	},
+	6: {
+		"wave_time": 33,
+		"wave_amount": 6,
+		"wave_spawn_cooldown": 3,
+		"spots_amount": [2, 5],
+		"wave_difficulty": "medium"
+	},
+	7: {
+		"wave_time": 33,
+		"wave_amount": 7,
+		"wave_spawn_cooldown": 3,
+		"spots_amount": [2, 5],
 		"wave_difficulty": "easy_to_medium"
+	},
+	8: {
+		"wave_time": 33,
+		"wave_amount": 8,
+		"wave_spawn_cooldown": 3,
+		"spots_amount": [2, 5],
+		"wave_difficulty": "easy_to_medium"
+	},
+	9: {
+		"wave_time": 33,
+		"wave_amount": 9,
+		"wave_spawn_cooldown": 3,
+		"spots_amount": [2, 5],
+		"wave_difficulty": "hard"
 	}
 }
 
@@ -69,9 +104,9 @@ func _ready() -> void:
 func _on_wave_timer_timeout() -> void:
 	_current_wave += 1
 	
-	if _current_wave == 2:
+	if _current_wave == 3:
 		_spawn_map(map_next)
-	elif _current_wave == 3:
+	elif _current_wave == 6:
 		_spawn_map(map_third)
 	
 	if _current_wave > 10:
