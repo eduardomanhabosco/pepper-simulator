@@ -5,7 +5,7 @@ var _is_attacking: bool = false
 
 
 @export_category("Variavbles")
-@export var _attack_damage: int
+@export var _attack_damage: int = 22
 @export var _attack_cooldown: float
 
 @export_category("Objects")

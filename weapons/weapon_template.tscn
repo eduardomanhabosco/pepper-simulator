@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://gy62kl4hafy"]
 
 [ext_resource type="Texture2D" uid="uid://5alhwjlyw5lg" path="res://assets/pepper_weapon.png" id="1_eyime"]
-[ext_resource type="Script" path="res://weapons/base_weapon.gd" id="1_twg0b"]
+[ext_resource type="Script" uid="uid://d1vij1663372k" path="res://weapons/base_weapon.gd" id="1_twg0b"]
 
 [node name="WeaponTemplate" type="Node2D" node_paths=PackedStringArray("_attack_timer", "_detection_area", "_animation")]
 script = ExtResource("1_twg0b")

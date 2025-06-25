@@ -80,8 +80,8 @@ tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_atxal"]
 _data = {
-"RESET": SubResource("Animation_yd4hi"),
-"attack": SubResource("Animation_d4dei")
+&"RESET": SubResource("Animation_yd4hi"),
+&"attack": SubResource("Animation_d4dei")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dei"]
@@ -102,7 +102,7 @@ region_enabled = false
 
 [node name="Animation" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_atxal")
+&"": SubResource("AnimationLibrary_atxal")
 }
 
 [node name="AttackArea" parent="." index="4"]

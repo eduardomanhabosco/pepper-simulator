@@ -33,11 +33,11 @@ func _on_button_pressed(_button: Button) -> void:
 
 	match slot_name:
 		"Slot1":
-			print("Mais vida")
+			_wave_manager.apply_card_effect("vida")
 		"Slot2":
-			print("Mais velocidade")
+			_wave_manager.apply_card_effect("velocidade")
 		"Slot3":
-			print("Mais dano")
+			_wave_manager.apply_card_effect("dano")
 		_:
 			print("Slot desconhecido: " + slot_name)
 

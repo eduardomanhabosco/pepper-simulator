@@ -4,16 +4,19 @@ class_name Player
 var _max_health: int 
 @export_category("Variables")
 @export var _move_speed: float = 256.0
-@export var _health: int = 100
+@export_category("Variables")
+@export var _health: int = 400
+
+@export_category("Objects")
+@export var _weapon: BaseWeapon
 
 func _ready() -> void:
 	_max_health = _health
 	global.player = self
 
-func _physics_process(delta: float) -> void: 
+func _physics_process(delta: float) -> void:
 	_move()
-	
-	
+
 func _move() -> void: 
 	var _direction: Vector2 = Input.get_vector(
 		"move_left", "move_right",
@@ -22,18 +25,21 @@ func _move() -> void:
 	velocity = _direction * _move_speed
 	move_and_slide()
 
+
 func update_health(_type: String, _value: int ) -> void:
 	match _type:
 		"damage":
 			_health -= _value
 			if _health <= 0:
 				queue_free()
-				
-				
 		"heal":
 			_health += _value
 			if _health > _max_health:
-				_health = _max_health	
+				_health = _max_health
+
+func increase_max_health(amount: int) -> void:
+	_max_health += amount	
+	_health += amount
 
 func resethealth() -> void:
 	_health = _max_health
