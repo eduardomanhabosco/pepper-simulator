@@ -1,8 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhh05ypgva1k7"]
+[gd_scene load_steps=12 format=3 uid="uid://bhh05ypgva1k7"]
 
-[ext_resource type="Script" uid="uid://mmv6w2ddk221" path="res://player/player.gd" id="1_g1dw6"]
-[ext_resource type="Texture2D" uid="uid://c0l526pkxjdn4" path="res://assets/pepper.png" id="1_oul6g"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://f8dqheod2d2o" path="res://assets/main_character/pepper_sprite_1.png" id="2_m0las"]
 [ext_resource type="PackedScene" uid="uid://beitt7k0g8tje" path="res://weapons/sword/sword_pepper.tscn" id="4_yw30f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4ff4"]
+atlas = ExtResource("2_m0las")
+region = Rect2(222, 0, 133, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxje1"]
+atlas = ExtResource("2_m0las")
+region = Rect2(444, 0, 133, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0urd"]
+atlas = ExtResource("2_m0las")
+region = Rect2(0, 0, 133, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lquu"]
+atlas = ExtResource("2_m0las")
+region = Rect2(0, 216, 133, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iqhu"]
+atlas = ExtResource("2_m0las")
+region = Rect2(222, 216, 133, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1wgt"]
+atlas = ExtResource("2_m0las")
+region = Rect2(444, 216, 133, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2k5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4ff4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxje1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0urd")
+}],
+"loop": true,
+"name": &"walk_dir",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lquu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iqhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1wgt")
+}],
+"loop": true,
+"name": &"walk_esq",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(15.8832, 51.8277)
@@ -11,10 +66,12 @@ size = Vector2(15.8832, 51.8277)
 script = ExtResource("1_g1dw6")
 _weapon = NodePath("WeaponsManager/Weapon_1/SwordPepper")
 
-[node name="Texture" type="Sprite2D" parent="."]
-scale = Vector2(0.0583778, 0.0583778)
-texture = ExtResource("1_oul6g")
-region_rect = Rect2(705.955, 659.98, 2.85315, 0)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.362069, 0.313131)
+sprite_frames = SubResource("SpriteFrames_i2k5y")
+animation = &"walk_esq"
+frame_progress = 0.237847
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(-3.84868, 2)

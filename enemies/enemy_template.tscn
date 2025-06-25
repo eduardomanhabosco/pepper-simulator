@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4knvaxcb15ur"]
 
-[ext_resource type="Script" uid="uid://ccga2v83pl52d" path="res://enemies/enemy.gd" id="1_qw6q8"]
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_qw6q8"]
 
 [sub_resource type="Animation" id="Animation_hlciq"]
 length = 0.001
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lpaiu"]
 _data = {
-&"RESET": SubResource("Animation_hlciq"),
-&"scale": SubResource("Animation_yvea4")
+"RESET": SubResource("Animation_hlciq"),
+"scale": SubResource("Animation_yvea4")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37cu2"]
@@ -63,7 +63,7 @@ _dash_timer = NodePath("DashTimer")
 
 [node name="Animation" type="AnimationPlayer" parent="Texture"]
 libraries = {
-&"": SubResource("AnimationLibrary_lpaiu")
+"": SubResource("AnimationLibrary_lpaiu")
 }
 autoplay = "scale"
 

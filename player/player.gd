@@ -6,6 +6,7 @@ var _max_health: int
 @export var _move_speed: float = 256.0
 @export_category("Variables")
 @export var _health: int = 400
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 @export_category("Objects")
 @export var _weapon: BaseWeapon
@@ -23,6 +24,15 @@ func _move() -> void:
 		"move_up", "move_down"
 	)
 	velocity = _direction * _move_speed
+	print(_direction[0])
+	if _direction[0] == 0 and _direction[1] == 0:
+		anim.stop()
+	if _direction[0] >= 0.01 or _direction[1] != 0:
+		anim.play('walk_dir')
+	if _direction[0] < 0:
+		anim.play('walk_esq')
+		
+	
 	move_and_slide()
 
 
