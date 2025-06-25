@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dheq8j1h53mdx"]
 
 [ext_resource type="FontFile" uid="uid://cjyjk8xgsx0g1" path="res://assets/Kaph_Font_1_20/TrueType (.ttf)/Kaph-Regular.ttf" id="1_bonr4"]
-[ext_resource type="Script" path="res://interface/text_popup.gd" id="1_byuy8"]
+[ext_resource type="Script" uid="uid://ct37osx0vdqqr" path="res://interface/text_popup.gd" id="1_byuy8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5kwiv"]
 font = ExtResource("1_bonr4")
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m5e7m"]
 _data = {
-"RESET": SubResource("Animation_jb0mb"),
-"animation_popup": SubResource("Animation_rgmfl")
+&"RESET": SubResource("Animation_jb0mb"),
+&"animation_popup": SubResource("Animation_rgmfl")
 }
 
 [node name="TextPopup" type="Label"]
@@ -58,7 +58,7 @@ script = ExtResource("1_byuy8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m5e7m")
+&"": SubResource("AnimationLibrary_m5e7m")
 }
 autoplay = "animation_popup"
 

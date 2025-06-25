@@ -46,14 +46,19 @@ func update_health(_type: String, _value: int ) -> void:
 		"damage":
 			_health -= _value
 			if _health <= 0:
+				_show_game_over_screen()
 				queue_free()
 		"heal":
 			_health += _value
 			if _health > _max_health:
 				_health = _max_health
-	if global.interface:
-		global.interface.update_health_label(_health)
+				
+func _show_game_over_screen() -> void:
+	var game_over_scene = preload("res://interface/gameOver_screen.tscn")
+	var game_over_instance = game_over_scene.instantiate()
+	get_tree().get_root().add_child(game_over_instance)
 	
+		
 func increase_max_health(amount: int) -> void:
 	_max_health += amount	
 	_health += amount

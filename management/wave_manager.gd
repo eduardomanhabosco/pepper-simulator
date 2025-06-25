@@ -6,7 +6,8 @@ const _BURGER_ENEMY: PackedScene = preload("res://enemies/enemy_burger.tscn")
 
 @export_category("Maps")
 @export var map_initial: PackedScene = preload("res://terrains/level_01.tscn")
-@export var map_next:    PackedScene = preload("res://terrains/level_02.tscn")
+@export var map_next: PackedScene = preload("res://terrains/level_02.tscn")
+@export var map_third: PackedScene = preload("res://terrains/level_03.tscn")
 
 
 
@@ -70,13 +71,14 @@ func _on_wave_timer_timeout() -> void:
 	
 	if _current_wave == 2:
 		_spawn_map(map_next)
+	elif _current_wave == 3:
+		_spawn_map(map_third)
 	
 	if _current_wave > 10:
 		print("voce venceu")
 		return
 	
 	_clear_map()
-	
 
 
 func _on_wave_spawn_cooldown_timeout() -> void:
