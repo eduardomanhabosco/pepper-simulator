@@ -5,36 +5,38 @@ class_name Interface
 @export var _wave_and_time: Label
 @export var _wave_manager: WaveManager
 
-# Para os corações
-@export var heart_texture: Texture
-@export var heart_container: Node  
-
-var max_hearts: int = 0
-var current_hearts: int = 0
+# Labels de status
+@export var _health_label: Label
+@export var _speed_label: Label
+@export var _damage_label: Label
 
 func _ready() -> void:
 	global.interface = self
+
 	for _button in get_tree().get_nodes_in_group("choose_button"):
 		_button.pressed.connect(_on_button_pressed.bind(_button))
 
+	if global.player:
+		update_health_label(global.player._health)
+		update_speed_label(global.player._move_speed)
+		if global.player._weapon:
+			update_damage_label(global.player._weapon._attack_damage)
 
 func update_wave_and_time_label(_wave: int, _time_remaining: int) -> void:
-	_wave_and_time.text = (
-		"Onda " + str(_wave) + "\n" +
-		"Tempo restante - " + _time_in_seconds(_time_remaining)
-	)
+	_wave_and_time.text = "Onda %d\nTempo restante: %s" % [
+		_wave,
+		_time_in_seconds(_time_remaining)
+	]
 
 func _time_in_seconds(_time: int) -> String:
-	var _seconds: float = _time % 60
-	@warning_ignore("integer_division")
-	var _minutes: float = (_time / 60) % 60
-	return "%02d:%02d" % [_minutes, _seconds]
+	var secs = int(_time % 60)
+	var mins = int((_time / 60) % 60)
+	return "%02d:%02d" % [mins, secs]
 
-func toggle_waves(_wave_state: bool, _waves_container: bool) -> void:
-	get_tree().paused = _waves_container
-	$WaveAndTime.visible = _wave_state
-	$BetweenWavesContainer.visible = _waves_container
-
+func toggle_waves(_show_wave: bool, _show_between: bool) -> void:
+	get_tree().paused = _show_between
+	$WaveAndTime.visible = _show_wave
+	$BetweenWavesContainer.visible = _show_between
 
 func _on_button_pressed(_button: Button) -> void:
 	var slot_name := _button.get_parent().name
@@ -42,32 +44,26 @@ func _on_button_pressed(_button: Button) -> void:
 	match slot_name:
 		"Slot1":
 			_wave_manager.apply_card_effect("vida")
+			update_health_label(global.player._health)
 		"Slot2":
 			_wave_manager.apply_card_effect("velocidade")
+			update_speed_label(global.player._move_speed)
 		"Slot3":
 			_wave_manager.apply_card_effect("dano")
+			update_damage_label(global.player._weapon._attack_damage)
 		_:
-			print("Slot desconhecido: " + slot_name)
+			print("Slot desconhecido:", slot_name)
 
 	toggle_waves(true, false)
 	_wave_manager._start_new_wave()
 
 
-# -------- Sistema de corações ----------
 
-func update_health_ui(health: int) -> void:
-	var hearts_count = int(ceil(health / 50.0))
+func update_health_label(health: int) -> void:
+	_health_label.text = "Vida: %d" % health
 
-	if hearts_count > max_hearts:
-		for i in range(hearts_count - max_hearts):
-			var heart = TextureRect.new()
-			heart.texture = heart_texture
-			heart_container.add_child(heart)
-		max_hearts = hearts_count
-	elif hearts_count < max_hearts:
-		for i in range(max_hearts - hearts_count):
-			if heart_container.get_child_count() > 0:
-				heart_container.get_child(heart_container.get_child_count() - 1).queue_free()
-		max_hearts = hearts_count
-	
-	current_hearts = hearts_count
+func update_speed_label(speed: float) -> void:
+	_speed_label.text = "Move Speed: %d" % speed
+
+func update_damage_label(damage: int) -> void:
+	_damage_label.text = "Dano: %d" % damage

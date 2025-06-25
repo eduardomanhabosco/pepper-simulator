@@ -1,15 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://cj52x76gsyotw"]
 
-[ext_resource type="Script" path="res://interface/interface.gd" id="1_vtx4e"]
+[ext_resource type="Script" uid="uid://bf374yy3c7pxu" path="res://interface/interface.gd" id="1_vtx4e"]
 [ext_resource type="FontFile" uid="uid://cjyjk8xgsx0g1" path="res://assets/Kaph_Font_1_20/TrueType (.ttf)/Kaph-Regular.ttf" id="2_y5ix0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o4h5c"]
 font = ExtResource("2_y5ix0")
 
-[node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("_wave_and_time")]
+[node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("_wave_and_time", "_health_label", "_speed_label", "_damage_label")]
 process_mode = 3
 script = ExtResource("1_vtx4e")
 _wave_and_time = NodePath("WaveAndTime")
+_health_label = NodePath("HealthLabel")
+_speed_label = NodePath("SpeedLabel")
+_damage_label = NodePath("DamageLabel")
 
 [node name="WaveAndTime" type="Label" parent="."]
 anchors_preset = 5
@@ -138,6 +141,21 @@ text = "DA MAIS VIDA"
 label_settings = SubResource("LabelSettings_o4h5c")
 horizontal_alignment = 1
 
-[node name="HeartContainer" type="HBoxContainer" parent="."]
+[node name="HealthLabel" type="Label" parent="."]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+text = "Vida: XXX"
+
+[node name="SpeedLabel" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 76.0
+offset_right = 134.0
+offset_bottom = 99.0
+text = "Move Speed: XXX"
+
+[node name="DamageLabel" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 43.0
+offset_right = 83.0
+offset_bottom = 66.0
+text = "Dano: XXX"

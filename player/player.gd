@@ -2,15 +2,20 @@ extends CharacterBody2D
 class_name Player
 
 var _max_health: int 
+
 @export_category("Variables")
 @export var _move_speed: float = 256.0
 @export_category("Variables")
 @export var _health: int = 400
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export_category("Objects")
 @export var _weapon: BaseWeapon
-@export var _interface: Interface
+
+# Você não precisa mais exportar a interface aqui,
+# usaremos o global.interface
+# @export var _interface: Interface
+
 
 func _ready() -> void:
 	_max_health = _health
@@ -25,7 +30,6 @@ func _move() -> void:
 		"move_up", "move_down"
 	)
 	velocity = _direction * _move_speed
-	print(_direction[0])
 	if _direction[0] == 0 and _direction[1] == 0:
 		anim.stop()
 	if _direction[0] >= 0.01 or _direction[1] != 0:
@@ -47,7 +51,8 @@ func update_health(_type: String, _value: int ) -> void:
 			_health += _value
 			if _health > _max_health:
 				_health = _max_health
-	_interface.update_health_ui(_health);
+	if global.interface:
+		global.interface.update_health_label(_health)
 	
 func increase_max_health(amount: int) -> void:
 	_max_health += amount	
@@ -55,3 +60,4 @@ func increase_max_health(amount: int) -> void:
 
 func resethealth() -> void:
 	_health = _max_health
+	

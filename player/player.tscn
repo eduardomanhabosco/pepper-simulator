@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bhh05ypgva1k7"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_g1dw6"]
+[ext_resource type="Script" uid="uid://mmv6w2ddk221" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://f8dqheod2d2o" path="res://assets/main_character/pepper_sprite_1.png" id="2_m0las"]
 [ext_resource type="PackedScene" uid="uid://beitt7k0g8tje" path="res://weapons/sword/sword_pepper.tscn" id="4_yw30f"]
 
