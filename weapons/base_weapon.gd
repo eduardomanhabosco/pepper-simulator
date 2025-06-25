@@ -37,6 +37,9 @@ func switch_side(direction):
 	if direction == "esq":
 		position.x = -40
 		rotation = 270
+		scale.x = -1
+		
 	elif direction == "dir":
 		position.x = 0
 		rotation = 20
+		scale.x = 1

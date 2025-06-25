@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://qhnl37qtnt77"]
 
-[ext_resource type="Script" uid="uid://b415x44f6tapw" path="res://interface/title_screen.gd" id="1_4ep50"]
+[ext_resource type="Script" path="res://interface/title_screen.gd" id="1_4ep50"]
 [ext_resource type="Texture2D" uid="uid://dnx85y2y5yr5d" path="res://assets/title_screen.jpg" id="2_4ep50"]
 [ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="3_urm4f"]
 
@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_4ep50")
 
 [node name="bg2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_4ep50")
