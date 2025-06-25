@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://fnxgoi2kq4wi"]
+[gd_scene load_steps=9 format=3 uid="uid://fnxgoi2kq4wi"]
 
 [ext_resource type="Texture2D" uid="uid://dnx85y2y5yr5d" path="res://assets/title_screen.jpg" id="1_lukqk"]
 [ext_resource type="Script" path="res://interface/title_screen.gd" id="1_mnyw5"]
 [ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="2_cq38a"]
+[ext_resource type="AudioStream" uid="uid://dpwesacglctd3" path="res://assets/button_sfx.mp3" id="4_id0t0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh21w"]
 
@@ -152,7 +153,16 @@ libraries = {
 }
 autoplay = "reveal"
 
+[node name="button_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_id0t0")
+volume_db = -9.369
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/htp_btn" to="." method="_on_htp_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/htp_btn" to="." method="_on_htp_btn_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/credits_btn" to="." method="_on_credits_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]

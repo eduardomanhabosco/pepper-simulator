@@ -15,6 +15,8 @@ _health_label = NodePath("HealthLabel")
 _speed_label = NodePath("SpeedLabel")
 _damage_label = NodePath("DamageLabel")
 
+[node name="button_sfx" type="AudioStreamPlayer" parent="."]
+
 [node name="WaveAndTime" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
@@ -124,3 +126,7 @@ label_settings = ExtResource("2_kcomb")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j5cp8")
 volume_db = -16.0
+
+[connection signal="mouse_entered" from="BetweenWavesContainer/Background/HCointainer/Slot1/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="BetweenWavesContainer/Background/HCointainer/Slot2/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="BetweenWavesContainer/Background/HCointainer/Slot3/Button" to="." method="_on_button_mouse_entered"]

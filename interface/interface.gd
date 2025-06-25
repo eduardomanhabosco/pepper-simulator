@@ -10,7 +10,8 @@ class_name Interface
 @export var _speed_label: Label
 @export var _damage_label: Label
 
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var upgrade: AudioStreamPlayer = $AudioStreamPlayer
+@onready var button_sfx: AudioStreamPlayer = $button_sfx
 
 
 func _ready() -> void:
@@ -42,7 +43,7 @@ func toggle_waves(_show_wave: bool, _show_between: bool) -> void:
 	$BetweenWavesContainer.visible = _show_between
 
 func _on_button_pressed(_button: Button) -> void:
-	audio_stream_player.play()
+	upgrade.play()
 	var slot_name := _button.get_parent().name
 
 	match slot_name:
@@ -71,3 +72,7 @@ func update_speed_label(speed: float) -> void:
 
 func update_damage_label(damage: int) -> void:
 	_damage_label.text = "Attack damage: %d" % damage
+
+
+func _on_button_mouse_entered() -> void:
+	button_sfx.play()

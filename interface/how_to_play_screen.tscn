@@ -65,4 +65,5 @@ text = "GO BACK"
 [node name="pepper" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/go_back_btn" to="." method="_on_go_back_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/go_back_btn" to="." method="_on_go_back_btn_pressed"]
