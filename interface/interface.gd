@@ -64,10 +64,10 @@ func _on_button_pressed(_button: Button) -> void:
 
 
 func update_health_label(health: int) -> void:
-	_health_label.text = "Vida: %d" % health
+	_health_label.text = "Health points: %d" % health
 
 func update_speed_label(speed: float) -> void:
-	_speed_label.text = "Move Speed: %d" % speed
+	_speed_label.text = "Movement speed: %d" % speed
 
 func update_damage_label(damage: int) -> void:
-	_damage_label.text = "Dano: %d" % damage
+	_damage_label.text = "Attack damage: %d" % damage

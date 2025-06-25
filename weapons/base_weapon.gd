@@ -35,6 +35,6 @@ func _on_attack_area_body_entered(_body) -> void:
 
 func switch_side(direction):
 	if direction == "esq":
-		position.x = -abs(position.x)  # garante que a espada vá para a esquerda
+		position.x = -abs(position.x)
 	elif direction == "dir":
-		position.x = abs(position.x)   # garante que a espada vá para a direita
+		position.x = abs(position.x)

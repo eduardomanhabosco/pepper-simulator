@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://jk3xiggr7kic"]
+
+[ext_resource type="Script" path="res://interface/title_screen.gd" id="1_krit5"]
+[ext_resource type="Texture2D" uid="uid://d2xjqoksko445" path="res://assets/how_to_play_screen.png" id="2_gjshu"]
+[ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="3_ndw73"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh21w"]
+
+[node name="HowToPlayScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_krit5")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_gjshu")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fh21w")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fh21w")
+
+[node name="go_back_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ndw73")
+text = "GO BACK"
+
+[node name="pepper" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/go_back_btn" to="." method="_on_go_back_btn_pressed"]
