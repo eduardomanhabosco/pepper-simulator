@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://fnxgoi2kq4wi"]
 
 [ext_resource type="Texture2D" uid="uid://dnx85y2y5yr5d" path="res://assets/title_screen.jpg" id="1_lukqk"]
-[ext_resource type="Script" uid="uid://b415x44f6tapw" path="res://interface/title_screen.gd" id="1_mnyw5"]
+[ext_resource type="Script" path="res://interface/title_screen.gd" id="1_mnyw5"]
 [ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="2_cq38a"]
 [ext_resource type="AudioStream" uid="uid://dpwesacglctd3" path="res://assets/button_sfx.mp3" id="4_id0t0"]
 [ext_resource type="AudioStream" uid="uid://cphcg2ynhko6d" path="res://assets/Magicka OST - Dunka Dunka.mp3" id="5_tmsxh"]
@@ -65,8 +65,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mv2ki"]
 _data = {
-&"RESET": SubResource("Animation_6euca"),
-&"reveal": SubResource("Animation_1be12")
+"RESET": SubResource("Animation_6euca"),
+"reveal": SubResource("Animation_1be12")
 }
 
 [node name="TitleScreen" type="Control"]
@@ -150,7 +150,7 @@ layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_mv2ki")
+"": SubResource("AnimationLibrary_mv2ki")
 }
 autoplay = "reveal"
 

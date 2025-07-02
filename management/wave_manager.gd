@@ -26,56 +26,56 @@ var _waves_dict: Dictionary = {
 		"wave_difficulty": "easy"
 	},
 	2: {
-		"wave_time": 15,
+		"wave_time": 11,
 		"wave_amount": 2,
 		"wave_spawn_cooldown": 4,
 		"spots_amount": [1, 3],
 		"wave_difficulty": "easy"
 	},
 	3: {
-		"wave_time": 25,
+		"wave_time": 12,
 		"wave_amount": 3,
 		"wave_spawn_cooldown": 4,
 		"spots_amount": [2, 3],
 		"wave_difficulty": "easy_to_medium"
 	},
 	4: {
-		"wave_time": 33,
+		"wave_time": 13,
 		"wave_amount": 4,
 		"wave_spawn_cooldown": 3,
 		"spots_amount": [2, 5],
 		"wave_difficulty": "medium_to_hard"
 	},
 	5: {
-		"wave_time": 33,
+		"wave_time": 14,
 		"wave_amount": 5,
 		"wave_spawn_cooldown": 3,
 		"spots_amount": [2, 5],
 		"wave_difficulty": "medium_to_hard"
 	},
 	6: {
-		"wave_time": 33,
+		"wave_time": 15,
 		"wave_amount": 6,
 		"wave_spawn_cooldown": 3,
 		"spots_amount": [2, 5],
 		"wave_difficulty": "medium"
 	},
 	7: {
-		"wave_time": 33,
+		"wave_time": 16,
 		"wave_amount": 7,
 		"wave_spawn_cooldown": 3,
 		"spots_amount": [2, 5],
 		"wave_difficulty": "easy_to_medium"
 	},
 	8: {
-		"wave_time": 33,
+		"wave_time": 17,
 		"wave_amount": 8,
 		"wave_spawn_cooldown": 3,
 		"spots_amount": [2, 5],
 		"wave_difficulty": "easy_to_medium"
 	},
 	9: {
-		"wave_time": 33,
+		"wave_time": 18,
 		"wave_amount": 9,
 		"wave_spawn_cooldown": 3,
 		"spots_amount": [2, 5],

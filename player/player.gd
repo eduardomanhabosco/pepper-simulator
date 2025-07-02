@@ -6,7 +6,7 @@ var _max_health: int
 @export_category("Variables")
 @export var _move_speed: float = 256.0
 @export_category("Variables")
-@export var _health: int = 400
+@export var _health: int = 10
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export_category("Objects")
@@ -58,6 +58,7 @@ func update_health(_type: String, _value: int ) -> void:
 		"damage":
 			_health -= _value
 			if _health <= 0:
+				show_game_over()
 				queue_free()
 		"heal":
 			_health += _value
@@ -75,3 +76,7 @@ func increase_max_health(amount: int) -> void:
 func resethealth() -> void:
 	_health = _max_health
 	
+func show_game_over() -> void:
+	var game_over_scene = preload("res://interface/gameOver_screen.tscn")
+	var game_over_instance = game_over_scene.instantiate()
+	get_tree().get_root().add_child(game_over_instance)

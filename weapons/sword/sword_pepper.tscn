@@ -126,4 +126,4 @@ position = Vector2(21.3432, -6.59002)
 shape = SubResource("CircleShape2D_atxal")
 
 [node name="sword_sfx" type="AudioStreamPlayer" parent="." index="7"]
-volume_db = -15.0
+volume_db = -8.735

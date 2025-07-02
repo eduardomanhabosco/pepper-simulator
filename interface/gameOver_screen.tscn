@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://qhnl37qtnt77"]
 
-[ext_resource type="Script" uid="uid://b415x44f6tapw" path="res://interface/title_screen.gd" id="1_4ep50"]
-[ext_resource type="Texture2D" uid="uid://dnx85y2y5yr5d" path="res://assets/title_screen.jpg" id="2_4ep50"]
+[ext_resource type="Script" path="res://interface/title_screen.gd" id="1_4ep50"]
+[ext_resource type="Texture2D" uid="uid://tbdkdtkekfv0" path="res://assets/lose.png" id="2_c2tqa"]
 [ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="3_urm4f"]
 [ext_resource type="AudioStream" uid="uid://cphcg2ynhko6d" path="res://assets/Magicka OST - Dunka Dunka.mp3" id="4_0wlvm"]
 
@@ -18,7 +18,7 @@ script = ExtResource("1_4ep50")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_4ep50")
+texture = ExtResource("2_c2tqa")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
