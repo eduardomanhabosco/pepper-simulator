@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qhnl37qtnt77"]
+[gd_scene load_steps=5 format=3 uid="uid://df6my0wgiy7gw"]
 
-[ext_resource type="Script" uid="uid://b415x44f6tapw" path="res://interface/title_screen.gd" id="1_4ep50"]
-[ext_resource type="Texture2D" uid="uid://tbdkdtkekfv0" path="res://assets/lose.png" id="2_c2tqa"]
-[ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="3_urm4f"]
-[ext_resource type="AudioStream" uid="uid://cphcg2ynhko6d" path="res://assets/Magicka OST - Dunka Dunka.mp3" id="4_0wlvm"]
+[ext_resource type="Script" uid="uid://b415x44f6tapw" path="res://interface/title_screen.gd" id="1_uwey4"]
+[ext_resource type="Texture2D" uid="uid://clb5vl04vvg8m" path="res://assets/WinScreen.png" id="2_uwey4"]
+[ext_resource type="Theme" uid="uid://dv7062kd71gk1" path="res://interface/title_btn.tres" id="3_26bm4"]
+[ext_resource type="AudioStream" uid="uid://cphcg2ynhko6d" path="res://assets/Magicka OST - Dunka Dunka.mp3" id="4_jdu66"]
 
 [node name="CreditsScreen" type="Control"]
 layout_mode = 3
@@ -12,13 +12,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4ep50")
+script = ExtResource("1_uwey4")
 
 [node name="bg2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = ExtResource("2_c2tqa")
+offset_right = 1542.0
+offset_bottom = 867.0
+texture = ExtResource("2_uwey4")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -49,14 +49,14 @@ size_flags_vertical = 0
 
 [node name="go_back_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_urm4f")
+theme = ExtResource("3_26bm4")
 text = "REINICIAR"
 
 [node name="pepper" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_0wlvm")
+stream = ExtResource("4_jdu66")
 autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/go_back_btn" to="." method="_on_go_back_btn_pressed"]

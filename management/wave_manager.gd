@@ -110,10 +110,32 @@ func _on_wave_timer_timeout() -> void:
 		_spawn_map(map_third)
 	
 	if _current_wave > 10:
-		print("voce venceu")
+		print("Você venceu!")
+		if is_instance_valid(_player):
+					_player._health = 999999999999
+					_player._max_health = 999999999999
+					if is_instance_valid(global.interface):
+						global.interface.update_health_label(_player._health)
+		var win_screen_scene = preload("res://interface/winScreen.tscn")
+		var win_screen = win_screen_scene.instantiate()
+		get_tree().get_root().add_child(win_screen)
+
+		if is_instance_valid(global.interface):
+			global.interface.queue_free()
+
+		global.player = null
+		_wave_timer.stop()
+		_wave_spawner_timer.stop()
+
 		return
+
+
 	
 	_clear_map()
+
+func _on_quiz_finished(effect: String) -> void:
+	apply_card_effect(effect)
+	_start_new_wave()
 
 
 func _on_wave_spawn_cooldown_timeout() -> void:
@@ -184,7 +206,8 @@ func _spawn_enemy(_spawner: Node2D) -> void:
 
 
 func _on_current_time_timer_timeout() -> void:
-	_interface.update_wave_and_time_label(_current_wave, _wave_timer.time_left)
+	if is_instance_valid(global.interface):
+		global.interface.update_wave_and_time_label(_current_wave, _wave_timer.time_left)
 
 func _clear_map() -> void:
 	for _chidren in get_parent().get_children():

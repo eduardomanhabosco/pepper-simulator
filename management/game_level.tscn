@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bhh05ypgva1k7" path="res://player/player.tscn" id="2_fyo3i"]
 [ext_resource type="PackedScene" uid="uid://demw0n4pmdu6r" path="res://terrains/level_02.tscn" id="2_ocy5h"]
 [ext_resource type="PackedScene" uid="uid://t5c8te17t3cc" path="res://management/wave_spot.tscn" id="3_dk70b"]
-[ext_resource type="Script" path="res://management/wave_manager.gd" id="3_e3dis"]
+[ext_resource type="Script" uid="uid://c18qjs7rlndsx" path="res://management/wave_manager.gd" id="3_e3dis"]
 [ext_resource type="PackedScene" uid="uid://cj52x76gsyotw" path="res://interface/interface.tscn" id="5_f35rk"]
 [ext_resource type="AudioStream" uid="uid://cphcg2ynhko6d" path="res://assets/Magicka OST - Dunka Dunka.mp3" id="7_x0e2h"]
 
