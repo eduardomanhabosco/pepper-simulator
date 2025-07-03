@@ -6,7 +6,7 @@ var _max_health: int
 @export_category("Variables")
 @export var _move_speed: float = 256.0
 @export_category("Variables")
-@export var _health: int = 22
+@export var _health: int = 222
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export_category("Objects")
@@ -14,11 +14,6 @@ var _max_health: int
 @export var _dust: CPUParticles2D = null
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var sword_pepper: BaseWeapon = $WeaponsManager/Weapon_1/SwordPepper
-
-# Você não precisa mais exportar a interface aqui,
-# usaremos o global.interface
-# @export var _interface: Interface
-
 
 func _ready() -> void:
 	_max_health = _health
@@ -62,7 +57,7 @@ func update_health(_type: String, _value: int ) -> void:
 			if _health > _max_health:
 				_health = _max_health
 	if is_instance_valid(global.interface):
-		global.interface.update_health_label(_health) # <= adicionado aqui
+		global.interface.update_health_label(_health)
 	
 func increase_max_health(amount: int) -> void:
 	_max_health += amount    
@@ -70,7 +65,16 @@ func increase_max_health(amount: int) -> void:
 	if is_instance_valid(global.interface):
 		global.interface.update_health_label(_health)
 
+func increase_move_speed(amount: float) -> void:
+	_move_speed += amount
+	if is_instance_valid(global.interface):
+		global.interface.update_speed_label(_move_speed)
 
+func increase_damage(amount: int) -> void:
+	if _weapon:
+		_weapon._attack_damage += amount
+		if is_instance_valid(global.interface):
+			global.interface.update_damage_label(_weapon._attack_damage)
 
 func resethealth() -> void:
 	_health = _max_health

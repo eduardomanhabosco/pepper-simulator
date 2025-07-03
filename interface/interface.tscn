@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj52x76gsyotw"]
+[gd_scene load_steps=8 format=3 uid="uid://cj52x76gsyotw"]
 
 [ext_resource type="Script" uid="uid://bf374yy3c7pxu" path="res://interface/interface.gd" id="1_vtx4e"]
 [ext_resource type="LabelSettings" uid="uid://b1msk7u4mca4k" path="res://interface/interface.tres" id="2_kcomb"]
@@ -6,14 +6,20 @@
 [ext_resource type="AudioStream" uid="uid://gexny1yudydg" path="res://assets/upgrade.mp3" id="3_j5cp8"]
 [ext_resource type="Texture2D" uid="uid://jrno6ql3q0ud" path="res://assets/speedcard.jpeg" id="4_8qvjo"]
 [ext_resource type="Texture2D" uid="uid://dkje54m8q5yl" path="res://assets/strengthcard.jpeg" id="5_s804w"]
+[ext_resource type="Texture2D" uid="uid://bks6f6m2qdh07" path="res://assets/quiz.png" id="7_1df0r"]
 
-[node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("_wave_and_time", "_health_label", "_speed_label", "_damage_label")]
+[node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("_wave_and_time", "_health_label", "_speed_label", "_damage_label", "_quiz_container", "_quiz_label", "_button1", "_button2", "_button3")]
 process_mode = 3
 script = ExtResource("1_vtx4e")
 _wave_and_time = NodePath("WaveAndTime")
 _health_label = NodePath("HealthLabel")
 _speed_label = NodePath("SpeedLabel")
 _damage_label = NodePath("DamageLabel")
+_quiz_container = NodePath("QuizContainer")
+_quiz_label = NodePath("QuizContainer/Label")
+_button1 = NodePath("QuizContainer/Button")
+_button2 = NodePath("QuizContainer/Button2")
+_button3 = NodePath("QuizContainer/Button3")
 
 [node name="button_sfx" type="AudioStreamPlayer" parent="."]
 
@@ -126,6 +132,53 @@ label_settings = ExtResource("2_kcomb")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j5cp8")
 volume_db = -16.0
+
+[node name="QuizContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Quiz" type="Sprite2D" parent="QuizContainer"]
+position = Vector2(584, 341)
+scale = Vector2(0.76123, 0.76123)
+texture = ExtResource("7_1df0r")
+
+[node name="Label" type="Label" parent="QuizContainer"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 104.0
+offset_right = 907.0
+offset_bottom = 127.0
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="Button" type="Button" parent="QuizContainer"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 433.0
+offset_right = 760.0
+offset_bottom = 484.0
+text = "aaaaaaaaaa"
+
+[node name="Button2" type="Button" parent="QuizContainer"]
+offset_left = 397.0
+offset_top = 298.0
+offset_right = 755.0
+offset_bottom = 354.0
+text = "aaaaaaaaaaa"
+
+[node name="Button3" type="Button" parent="QuizContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.615
+anchor_top = 4.207
+anchor_right = 10.631
+anchor_bottom = 4.921
+offset_left = 339.4
+offset_top = 389.72
+offset_right = 336.76
+offset_bottom = 418.16
+text = "aaaaaaaaaaa"
 
 [connection signal="mouse_entered" from="BetweenWavesContainer/Background/HCointainer/Slot1/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_entered" from="BetweenWavesContainer/Background/HCointainer/Slot2/Button" to="." method="_on_button_mouse_entered"]
